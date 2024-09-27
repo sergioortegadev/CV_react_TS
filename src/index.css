@@ -61,7 +61,7 @@
       @apply text-mainColor dark:text-darkMainColor;
     }
     a {
-      @apply hover:text-brandYellow hover:shadow-lg;
+      @apply hover:text-lightBrandYellow dark:hover:text-brandYellow hover:shadow-lg;
     }
   }
   #portfolio {
@@ -232,6 +232,214 @@
 
   .menu-bar-closed-translate-reverse {
     @apply translate-y-2;
+  }
+
+  /* ----------------------------------- */
+  /*  ========  PORTFOLIO ============   */
+
+  .main-port {
+    @apply flex flex-col justify-center items-center text-darkBgColor h-screen min-w-full bg-darkBgColor overflow-x-hidden py-20;
+    animation: main 0.5s forwards;
+    animation-delay: 4s;
+  }
+
+  @keyframes main {
+    0% {
+      justify-content: center;
+    }
+    100% {
+      justify-content: flex-start;
+    }
+  }
+
+  @keyframes into {
+    0% {
+      width: 0;
+    }
+    7% {
+      width: 4.3em;
+      transform: skewY(0deg);
+    }
+    15% {
+      line-height: 0;
+      background-position: right;
+      transform: skewY(-10deg);
+    }
+    25% {
+      width: 4.3em;
+      line-height: 1;
+      transform: skewY(-10deg) translate(0);
+    }
+    85% {
+      width: 4.3em;
+      line-height: 1;
+      transform: skewY(-10deg) translate(0);
+    }
+    90% {
+      line-height: 0;
+      transform: skewY(-10deg) translate(0) scaleX(1);
+    }
+    95% {
+      transform: skewY(-10deg) translate(9em) scaleX(5);
+    }
+    100% {
+      background-position: left;
+      transform: skewY(-10deg) translate(15em) scaleX(1);
+      visibility: hidden;
+    }
+  }
+
+  @keyframes into2 {
+    12% {
+      height: 0.07em;
+    }
+    15% {
+      height: 0.2em;
+    }
+    85% {
+      height: 0.2em;
+    }
+    90% {
+      height: 0.02em;
+    }
+  }
+
+  @keyframes menu-in {
+    0% {
+      font-size: 0;
+    }
+    30% {
+      visibility: visible;
+      font-size: 0.5rem;
+    }
+    100% {
+      visibility: visible;
+      font-size: 1rem;
+    }
+  }
+
+  @keyframes h2-in {
+    0% {
+      font-size: 0;
+      color: transparent;
+    }
+    30% {
+      font-size: 0;
+    }
+    100% {
+      font-size: 2.5rem;
+      color: yellow;
+    }
+  }
+
+  @keyframes proyecto-in {
+    0% {
+      width: 0;
+      border: none;
+    }
+    30% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+      border: 1px solid transparent;
+      border-radius: 9px;
+    }
+  }
+
+  .h1-port {
+    @apply text-transparent font-bold text-[5em] text-center overflow-hidden  bg-gradient-to-r from-yellow-300 from-40%  to-white to-50%  bg-clip-text;
+    animation: into 4s forwards;
+    background-size: 300% 100%;
+    background-position: right;
+  }
+
+  .h1-port::before,
+  .h1-port::after {
+    @apply block bg-white w-full h-[0.01rem] content-[''];
+    animation: into2 3.8s forwards;
+  }
+
+  .h2-port {
+    @apply text-center font-bold text-[1.25em] mb-6 mt-[-10rem];
+    animation: h2-in 0.6s alternate forwards;
+    animation-delay: 3.9s;
+  }
+  .proyectos-box {
+    @apply flex flex-wrap justify-center items-center;
+  }
+
+  .proyectos {
+    @apply pt-0;
+    animation: into2 4s forwards;
+  }
+  .proyecto {
+    @apply relative;
+  }
+
+  .proyecto img {
+    @apply max-w-[90%] h-auto m-2;
+    animation: proyecto-in 0.6s alternate forwards;
+    animation-delay: 3.8s;
+  }
+
+  .overlay {
+    @apply absolute flex justify-center items-center p-2 top-1/2 left-1/2 translate-x-[-54%] translate-y-[-50%] rounded-lg border-transparent bg-white/70 backdrop-blur-sm w-[90%] h-[95%];
+  }
+
+  .overlay p {
+    @apply mb-0 text-darkBgColor font-extrabold;
+  }
+  .proyecto,
+  .overlay,
+  .overlay p,
+  .overlay a,
+  .boton-volver {
+    @apply invisible gap-2;
+    animation: menu-in 0.75s alternate forwards;
+    animation-delay: 4.2s;
+  }
+  .overlay-left {
+    @apply text-left;
+  }
+  .overlay-right {
+    @apply text-right text-3xl;
+  }
+
+  .boton-volver {
+    @apply mt-4 text-center z-50;
+  }
+  .btn-portfolio {
+    @apply p-2 border-secondColorBtn text-white rounded-lg border-2 hover:border-secondColorBtnHover hover:bg-transparent;
+  }
+
+  @media (min-width: 768px) {
+    .proyecto img {
+      @apply max-w-[400px];
+    }
+    .overlay {
+      @apply top-1/2 opacity-35 bg-transparent backdrop-filter-none border-none max-w-[90%] h-auto p-4;
+    }
+    .overlay p {
+      @apply text-[1.6rem] font-bold opacity-90;
+    }
+    .proyecto:hover p {
+      @apply text-darkMainColor;
+    }
+
+    .proyecto:hover img {
+      @apply opacity-20;
+    }
+    .proyecto:hover .overlay,
+    .proyecto:hover .overlay * {
+      @apply opacity-100;
+    }
+  }
+
+  @media (max-width: 360px) {
+    .overlay p {
+      @apply font-bold mb-0;
+    }
   }
 }
 

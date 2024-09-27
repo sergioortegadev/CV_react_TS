@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import ThemeContext, { ThemeContextProps } from "../context/ThemeContext";
 import LangContext, { LangContextProps } from "../context/LangContext";
 import { Link } from "react-router-dom";
@@ -99,7 +99,9 @@ const Home: React.FC = () => {
             </Link>
           </figure>
           <p>
-            <Link to="/portfolio">{text.portfolio_p}</Link>
+            <Link to="/portfolio">{text.portfolio_p1}</Link>
+            <br />
+            {text.portfolio_p2}
           </p>
         </article>
 
