@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect, useRef } from "react";
 import ThemeContext, { ThemeContextProps } from "../context/ThemeContext";
 import LangContext, { LangContextProps } from "../context/LangContext";
 import { Link } from "react-router-dom";
@@ -8,12 +8,46 @@ import { BsPersonFillUp } from "react-icons/bs";
 import { FiSun, FiMoon } from "react-icons/fi";
 import { IoMdArrowRoundUp } from "react-icons/io";
 import Menu from "./Menu";
+import ParticlesComponent from "./Particles";
 
 const Home: React.FC = () => {
   const { theme, handleTheme } = useContext<ThemeContextProps>(ThemeContext);
   const { text, lang, handleLang } = useContext<LangContextProps>(LangContext);
 
   const [show, setShow] = useState(false);
+
+  const animatedRefs = useRef<HTMLDivElement[]>([]);
+
+  useEffect(() => {
+    // IntersectionObserver para detectar cuando los divs entran en el viewport
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          // Si el elemento es visible en el viewport
+          if (entry.isIntersecting) {
+            // Añadimos la clase para hacerlo visible
+            entry.target.classList.add("scroll-visible");
+
+            // Dejamos de observar el elemento, ya no necesita volver a animarse
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    // Observamos todos los divs referenciados
+    animatedRefs.current.forEach((ref) => {
+      if (ref) {
+        observer.observe(ref);
+      }
+    });
+
+    // Limpiamos el observer cuando se desmonta el componente
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   const handleMenu = () => {
     document.querySelector(".panel-ext")?.classList.toggle("is-active");
@@ -35,11 +69,16 @@ const Home: React.FC = () => {
 
   return (
     <>
+      <ParticlesComponent />
       <Menu setShow={setShow} />
       <Header />
 
       <main className="container">
-        <article id="contact">
+        <article
+          id="contact"
+          ref={(el) => el && animatedRefs.current.push(el as HTMLDivElement)}
+          className="animatedDiv scroll-hidden"
+        >
           <h2>{text.contacto_h2}</h2>
           <ul>
             <li>
@@ -87,12 +126,20 @@ const Home: React.FC = () => {
           </ul>
         </article>
 
-        <article id="about">
+        <article
+          id="about"
+          ref={(el) => el && animatedRefs.current.push(el as HTMLDivElement)}
+          className="animatedDiv scroll-hidden"
+        >
           <h2>{text.acerca_h2}</h2>
           <p>{text.acerca_p}</p>
         </article>
 
-        <article id="portfolio">
+        <article
+          id="portfolio"
+          ref={(el) => el && animatedRefs.current.push(el as HTMLDivElement)}
+          className="animatedDiv scroll-hidden"
+        >
           <figure className="icon">
             <Link to="/portfolio">
               <img src="./assets/portfolio_.png" alt="portfolio" />
@@ -105,7 +152,11 @@ const Home: React.FC = () => {
           </p>
         </article>
 
-        <article id="experience">
+        <article
+          id="experience"
+          ref={(el) => el && animatedRefs.current.push(el as HTMLDivElement)}
+          className="animatedDiv scroll-hidden"
+        >
           <h2>{text.experiencia_h2}</h2>
           <div className="exp-item">
             <div className="exp-logo">
@@ -133,7 +184,11 @@ const Home: React.FC = () => {
           <p className="exp-before">{text.educacion_anterior}</p>
         </article>
 
-        <article id="lang">
+        <article
+          id="lang"
+          ref={(el) => el && animatedRefs.current.push(el as HTMLDivElement)}
+          className="animatedDiv scroll-hidden"
+        >
           <h2>{text.lang_h2}</h2>
           <div className="lang">
             <figure className="icon">
@@ -156,7 +211,11 @@ const Home: React.FC = () => {
           </div>
         </article>
 
-        <article id="education">
+        <article
+          id="education"
+          ref={(el) => el && animatedRefs.current.push(el as HTMLDivElement)}
+          className="animatedDiv scroll-hidden"
+        >
           <h2>{text.educacion_h2}</h2>
           <ul>
             <li>
@@ -235,18 +294,22 @@ const Home: React.FC = () => {
           </ul>
         </article>
 
-        <article id="tech">
+        <article
+          id="tech"
+          ref={(el) => el && animatedRefs.current.push(el as HTMLDivElement)}
+          className="animatedDiv scroll-hidden"
+        >
           <h2>{text.tecnologias_h2}</h2>
           <div className="tech-grid">
-            <figure>
+            <figure className="tech-figure">
               <img src="./assets/typescript-logo.svg" alt="typescript" />
               <figcaption>TypeScript</figcaption>
             </figure>
-            <figure>
+            <figure className="tech-figure">
               <img src="./assets/react.svg" alt="react.js" />
               <figcaption>React.js</figcaption>
             </figure>
-            <figure>
+            <figure className="tech-figure">
               {theme === "light" ? (
                 <img src="./assets/nextjs-light.svg" alt="next.js" />
               ) : (
@@ -255,27 +318,27 @@ const Home: React.FC = () => {
 
               <figcaption>Next.js</figcaption>
             </figure>
-            <figure>
+            <figure className="tech-figure">
               <img src="./assets/tailwindcss-logo.svg" alt="Tailwind" />
               <figcaption>Tailwind CSS</figcaption>
             </figure>
-            <figure>
+            <figure className="tech-figure">
               <img src="./assets/javascript.svg" alt="javascript" />
               <figcaption>JavaScript</figcaption>
             </figure>
-            <figure>
+            <figure className="tech-figure">
               <img src="./assets/node.svg" alt="node.js" />
               <figcaption>Node.js</figcaption>
             </figure>
-            <figure>
+            <figure className="tech-figure">
               <img src="./assets/mongodb_.svg" alt="logo MongoDB" />
               <figcaption>MongoDB</figcaption>
             </figure>
-            <figure>
+            <figure className="tech-figure">
               <img src="./assets/git.svg" alt="git" />
               <figcaption>Git</figcaption>
             </figure>
-            <figure>
+            <figure className="tech-figure">
               {theme === "light" ? (
                 <img src="./assets/github-light.svg" alt="github" />
               ) : (
@@ -289,7 +352,11 @@ const Home: React.FC = () => {
           <p className="tech-others">{text.tech_p}</p>
         </article>
 
-        <article id="skills">
+        <article
+          id="skills"
+          ref={(el) => el && animatedRefs.current.push(el as HTMLDivElement)}
+          className="animatedDiv scroll-hidden"
+        >
           <h2>{text.habilidades_h2}</h2>
           <ul>
             {text.habilidades_li.map((el, index) => (
