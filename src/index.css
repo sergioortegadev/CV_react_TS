@@ -17,7 +17,7 @@
 
 @layer components {
   .banner {
-    @apply relative -z-10 flex justify-center  max-h-[25vh] min-h-[20vh] max-[400px]:min-h-[16vh] bg-brandYellow;
+    @apply relative -z-10 flex justify-center  max-h-[30vh] min-h-[20vh] max-[400px]:min-h-[25vh] bg-brandYellow;
     img {
       @apply object-cover md:object-center w-full max-w-screen-2xl;
     }
@@ -50,7 +50,7 @@
     @apply w-svw mx-auto sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl;
   }
   article {
-    @apply mx-2 mt-20 mb-20 max-[400px]:text-sm text-base sm:text-xl sm:mx-4 md:m-12 md:mb-48 lg:mb-64 lg:mt-32;
+    @apply mx-2 mt-20 mb-40 max-[400px]:text-sm text-base sm:text-xl sm:mx-4 md:m-12 md:mb-56 lg:mb-64 lg:mt-32;
     h2 {
       @apply text-2xl sm:text-3xl font-semibold pb-6;
     }
@@ -137,6 +137,9 @@
       }
     }
   }
+  .tech-figure {
+    @apply hover:scale-125 transition-transform duration-500;
+  }
   .tech-others {
     @apply mt-6 md:mt-16 text-center;
   }
@@ -155,15 +158,28 @@
       }
     }
   }
+
+  /*  - - Animated intro articles - - */
+
+  .scroll-hidden {
+    opacity: 0;
+    transform: translateX(-100px); /* Por ejemplo, sale desde la izquierda */
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+  }
+  .scroll-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
   /*  Menu panel - Nav */
   .panel-ext {
-    @apply invisible fixed w-screen h-screen;
+    @apply invisible absolute w-screen h-screen;
   }
   .panel-ext.is-active {
     @apply visible;
   }
   .panel {
-    @apply invisible opacity-0 fixed z-[998] top-0 bottom-0 left-0 right-0 w-full overflow-y-auto transition-transform duration-300 ease-in-out bg-secondModalColor lg:left-[70%] lg:w-[30%];
+    @apply invisible opacity-0 fixed z-50 top-0 bottom-0 left-0 right-0 w-full overflow-y-auto transition-transform duration-300 ease-in-out bg-secondModalColor lg:left-[70%] lg:w-[30%];
     transform: translate(100%, 100%);
   }
 
