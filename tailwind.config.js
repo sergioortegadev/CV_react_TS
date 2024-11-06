@@ -13,6 +13,7 @@ export default {
         thirdColor: "#595260",
         fourthColor: "#fff159",
         brandYellow: "#fff100",
+        brandGreen: "#bfd732",
         lightBrandYellow: "#809090",
         mainModalColor: "#2c2e43d0",
         secondModalColor: "#fff159ea",

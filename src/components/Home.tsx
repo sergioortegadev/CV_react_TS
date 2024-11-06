@@ -160,6 +160,21 @@ const Home: React.FC = () => {
           <h2>{text.experiencia_h2}</h2>
           <div className="exp-item">
             <div className="exp-logo">
+              {theme === "light" ? (
+                <img src="./assets/G_logo_light.svg" alt="Globant Logo" />
+              ) : (
+                <img src="./assets/G_logo_dark.svg" alt="Globant Logo" />
+              )}
+            </div>
+            <div className="exp-text">
+              <h3>{text.experiencia_02_h3}</h3>
+              <h4>{text.experiencia_02_h4}</h4>
+              <p>{text.experiencia_02_p1}</p>
+              <p>{text.experiencia_02_p2}</p>
+            </div>
+          </div>
+          <div className="exp-item">
+            <div className="exp-logo">
               <img src="./assets/tpl.jpg" alt="TPL Logo" />
             </div>
             <div className="exp-text">

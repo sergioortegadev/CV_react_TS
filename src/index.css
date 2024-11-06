@@ -17,9 +17,9 @@
 
 @layer components {
   .banner {
-    @apply relative -z-10 flex justify-center  max-h-[30vh] min-h-[20vh] max-[400px]:min-h-[25vh] bg-brandYellow;
+    @apply relative -z-10 flex justify-center  max-h-[30vh] min-h-[20vh] max-[400px]:min-h-[25vh] bg-brandGreen;
     img {
-      @apply object-cover md:object-center w-full max-w-screen-2xl;
+      @apply object-cover object-[74%_50%] max-[350px]:object-[80%_50%] md:object-center w-full max-w-screen-2xl;
     }
   }
   .profile-photo-cont {
@@ -27,7 +27,7 @@
     .profil-photo {
       @apply max-[400px]:w-[7rem] max-w-[10rem] aspect-square mx-auto md:ml-16 lg:ml-8;
       img {
-        @apply w-full h-full rounded-full border-4 border-gray-900/90 border-solid m-0 mt-[-4rem] min-[401px]:mt-[-5rem];
+        @apply w-full h-full rounded-full border-4 border-gray-900/90 border-solid m-0 mt-[-3rem] min-[401px]:mt-[-5rem];
       }
     }
   }

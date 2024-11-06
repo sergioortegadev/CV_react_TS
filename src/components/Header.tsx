@@ -6,7 +6,10 @@ const Header = () => {
   return (
     <header>
       <div className="banner">
-        <img src="./assets/banner-large.jpg" alt="Banner" />
+        <img
+          src="./assets/banner-large_g.png"
+          alt="Banner Sergio Ortega dev con mensaje: La incomodidad de la comodidad"
+        />
       </div>
 
       <div className="profile-photo-cont">

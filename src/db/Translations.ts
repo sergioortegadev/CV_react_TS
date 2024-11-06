@@ -41,8 +41,13 @@ const Translations = {
     educacion_anterior:
       "Trabajé por más de 20 años en la industria audiovisual y diseño gráfico, actualmente reperfilando mi carrera hacia desarrollo. Desarrollé una gran creatividad y habilidades blandas en esta larga experiencia.",
     experiencia_h2: "Experiencia",
+    experiencia_02_h3: "Globant",
+    experiencia_02_h4: `Desarrollador Frontend (Nov 2024 - actualidad)`,
+    experiencia_02_p1:
+      "Desarrollador Web UI, SSr Adv, desarrollador frontend, con React.js, Next.js, TypeScript, Tailwind CSS. SPAs y diseño de Web Apps con creatividad y usabilidad.",
+    experiencia_02_p2: ``,
     experiencia_01_h3: "The Profit Lane",
-    experiencia_01_h4: `Desarrollador Frontend (2023 - actualidad)`,
+    experiencia_01_h4: `Desarrollador Frontend (Abr 2023 - Oct 2024)`,
     experiencia_01_p1: "Desarrollador Frontend con React.js. SPAs y Web Apps diseñadas con creatividad y usabilidad.",
     experiencia_01_p2: `Entre las tecnologías usadas destacan: React, Next.js, Tailwind, Typescript, JavaScript, y consumo de API.`,
     experiencia_00_h3: "Freelance",
@@ -53,7 +58,7 @@ const Translations = {
     lang_h2: "Idiomas",
     lang_p1: "English B2. Demostrando una comunicación efectiva en entornos profesionales y técnicos.",
     lang_p2: "Español nativo.",
-    footer_p1: "Última Actualización: Octubre 2024",
+    footer_p1: "Última Actualización: Noviembre 2024",
     footer_p2: "Por consultas, propuestas o proyectos contactar vía mail. Muchas gracias ;)",
   },
   en: {
@@ -91,8 +96,12 @@ const Translations = {
     educacion_anterior:
       "I have worked for more than 20 years in the audiovisual and graphic design industry and am currently redirecting my career towards development. This experience has developed my creativity and social skills.",
     experiencia_h2: "Experience",
+    experiencia_02_h3: "Globant",
+    experiencia_02_h4: "Frontend Developer (Nov 2024 - present)",
+    experiencia_02_p1: `Web UI Developer, SSr Adv, Frontend developer with React.js, Next.js, TypeScript, Tailwind CSS. SPAs and Web Apps designed with creativity and usability.`,
+    experiencia_02_p2: ``,
     experiencia_01_h3: "The Profit Lane",
-    experiencia_01_h4: "Frontend Developer (2023 - present)",
+    experiencia_01_h4: "Frontend Developer (Apr 2023 - Oct 2024)",
     experiencia_01_p1: `Frontend developer with React.js. SPAs and Web Apps designed with creativity and usability.`,
     experiencia_01_p2: `Among the technologies used are: React, Next.js, Tailwind, Typescript, JavaScript,  and API consuming.`,
     experiencia_00_h3: "Freelance",
@@ -103,7 +112,7 @@ const Translations = {
     lang_p1:
       "Proficiency in English at B2 level, demonstrating effective communication in professional and technical environments.",
     lang_p2: "Spanish native",
-    footer_p1: "Last Update: October 2024",
+    footer_p1: "Last Update: November 2024",
     footer_p2: "To make inquiries, proposals or projects, please contact via email. Thank you very much  ;)",
   },
 };
